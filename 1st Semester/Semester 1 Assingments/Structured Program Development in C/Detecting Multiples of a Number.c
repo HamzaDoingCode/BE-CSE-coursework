@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main()
+{
+    for (int i = 1; i <= 500; i++)
+    {
+        printf("$ ");
+        if(i % 50 == 0)
+            printf("\n");
+    }
+    
+}
