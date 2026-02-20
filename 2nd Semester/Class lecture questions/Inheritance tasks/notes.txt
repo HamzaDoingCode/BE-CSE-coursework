@@ -1,0 +1,24 @@
+Runtime Polymorphism
+
+When a base class function is called inside a derived class method, the base class method 
+executes for the derived class object if the base class method is declared virtual.
+For example: void BulkItem::display() {InventoryItem::display();}
+Here, the cout statements inside the base class display() method will print the values of the derived class object’s attributes.
+
+Amazing concept:
+If a virtual base class method is called inside another base class method, 
+then the virtual method is executed according to the actual derived class object that is calling it.
+For example: void BulkItem::display() {InventoryItem::display();}
+Inside the base class display() method, the totalCost() method (which is virtual) will execute its overridden version from the BulkItem class.
+
+2nd point 
+There is a type attribute in the base class, and each derived class assigns its own value 
+to this attribute through its constructor. The base-class get_type() function is inherited by 
+all derived classes and returns the correct type value based on the object that is calling it.
+
+3rd point.
+items is a pointer to a pointer of the base class. It points to an array of base-class pointers, 
+where each pointer can store the address of a derived-class object.
+When the input() function is called using: items[i]->input();
+the compiler selects the correct input() function at runtime, based on the actual object type.
+This happens due to the virtual keyword and runtime polymorphism
